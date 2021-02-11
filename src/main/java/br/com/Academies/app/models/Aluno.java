@@ -1,27 +1,14 @@
-package br.com.Academies.app.entity;
+package br.com.Academies.app.models;
 
-
-
-import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
-@Entity
-public class AlunoEntity {
+public class Aluno {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
     private String telefone;
     private String cpf;
-
-    @ManyToMany
-    @JoinTable(name = "Aluno_Plano",
-            joinColumns = @JoinColumn(name= "aluno_id"),
-            inverseJoinColumns = @JoinColumn(name= "plano_id"))
-    private Set<PlanoEntity> planoEntityList;
+    private Set<Plano> planoList;
 
     public Long getId() {
         return id;
@@ -55,11 +42,11 @@ public class AlunoEntity {
         this.cpf = cpf;
     }
 
-    public Set<PlanoEntity> getPlanoEntityList() {
-        return planoEntityList;
+    public Set<Plano> getPlanoList() {
+        return planoList;
     }
 
-    public void setPlanoEntityList(Set<PlanoEntity> planoEntityList) {
-        this.planoEntityList = planoEntityList;
+    public void setPlanoList(Set<Plano> planoList) {
+        this.planoList = planoList;
     }
 }

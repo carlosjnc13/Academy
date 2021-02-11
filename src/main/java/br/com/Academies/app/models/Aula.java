@@ -1,24 +1,15 @@
-package br.com.Academies.app.entity;
+package br.com.Academies.app.models;
 
-import javax.persistence.*;
 import java.time.LocalTime;
 
-@Entity
-public class AulaEntity {
+public class Aula {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
     private LocalTime duracao;
     private String instrutor;
-    @ManyToOne
-    @JoinColumn(name= "Academia_id")
-    private AcademyEntity academia;
-
-    @ManyToOne
-    private PlanoEntity planoEntity;
+    private Academy academia;
+    private Plano planoEntity;
 
     public Long getId() {
         return id;
@@ -52,19 +43,19 @@ public class AulaEntity {
         this.instrutor = instrutor;
     }
 
-    public AcademyEntity getAcademia() {
+    public Academy getAcademia() {
         return academia;
     }
 
-    public void setAcademia(AcademyEntity academia) {
+    public void setAcademia(Academy academia) {
         this.academia = academia;
     }
 
-    public PlanoEntity getPlanoEntity() {
+    public Plano getPlanoEntity() {
         return planoEntity;
     }
 
-    public void setPlanoEntity(PlanoEntity planoEntity) {
+    public void setPlanoEntity(Plano planoEntity) {
         this.planoEntity = planoEntity;
     }
 }
